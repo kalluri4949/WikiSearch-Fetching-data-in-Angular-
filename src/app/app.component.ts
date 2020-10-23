@@ -8,15 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   pages = [];
-  constructor(
-    private wikiservice: WikipediaService
-    ){}
+  constructor(private wikiservice: WikipediaService) {}
   onSubmittedSearch(term: string): void {
-    this.wikiservice.search(term).subscribe(
-      (response: any) => {
-        this.pages = response.query.search;
-      }
-    );
-
+    this.wikiservice.search(term).subscribe((pages) => {
+      this.pages = pages;
+    });
   }
 }
